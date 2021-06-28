@@ -1,21 +1,22 @@
-package com.test.programs
+package SparkGeneral
 
-import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.apache.spark.sql.Row
+import org.apache.spark.sql.{Row, SparkSession}
 
-object SQLInterview extends  App {
+object SQLInterview extends App {
 
   val sc = SparkSession.builder().appName("Read file").master("local").getOrCreate()
   sc.sparkContext.setLogLevel("ERROR")
-  val data=List(Row(1,"a","hr"),Row(2,"b","it"),Row(3,"c","hr"),Row(4,"d","hr"),Row(5,"e","it"))
-  val columns=StructType(List(
-    StructField("id",IntegerType,true),
-    StructField("name",StringType,true),
-    StructField("dept",StringType,true)
+  val data = List(Row(1, "a", "hr"), Row(2, "b", "it"), Row(3, "c", "hr"), Row(4, "d", "hr"), Row(5, "e", "it"))
+  val columns = StructType(List(
+    StructField("id", IntegerType, true),
+    StructField("name", StringType, true),
+    StructField("dept", StringType, true)
   ))
+
   import scala.collection.JavaConversions._
-  val df= sc.createDataFrame(data,columns)
+
+  val df = sc.createDataFrame(data, columns)
   df.createOrReplaceTempView("emp")
 
   //**

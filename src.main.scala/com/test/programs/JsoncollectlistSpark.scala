@@ -14,7 +14,7 @@ import org.apache.spark.sql.types.{StructType, StructField,ArrayType,DataType}
 import org.apache.spark.sql.{functions => f}
 import scala.util.Try
 
-object dataframes2 {
+object JsoncollectlistSpark {
   
     def dropSubColumn(col: Column, colType: DataType, fullColName: String, dropColName: String): Option[Column] = {
     if (fullColName.equals(dropColName)) {
