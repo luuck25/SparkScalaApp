@@ -3,7 +3,7 @@ package SparkGeneral
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
+import org.apache.spark.sql.types.{DateType, IntegerType, StringType, StructField, StructType}
 
 object dataframes {
 
